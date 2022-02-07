@@ -1,4 +1,8 @@
 from word_class import Word
+from person import Person
+from parachute import Parachute
+from display import Display
+
 
 class Director:
 
@@ -9,7 +13,12 @@ class Director:
             self (Director): an instance of Director.
         """
         self._is_playing = True
-        self._word = Word()
+        self._word_list = Word()
+        self._word = self._word_list._getword()
+        self._person = Person()
+        self._display = Display()
+        self._parachute = Parachute()
+        print(self._word)
 
     def start_game(self):
         """Starts the game by running the main game loop.
@@ -51,20 +60,10 @@ class Director:
         if not self._is_playing:
             return
 
-        failed = 0
-        for char in word_final:
-            if char in guesses:
-                print(f'{char}')
-            else:
-                print("_")
-                failed += 1
-        if failed == 0:
-            print("Congratulations! You Won!")
-
-        if letter not in word_final:
-            turns -= 1
-            print('Wrong!')
-            print(f'You have {turns} more guesses')
+        if letter in self._word:
+            pass
+        else:
+            self._parachute.break_chute()
 
     def _do_outputs(self):
         """
@@ -72,4 +71,19 @@ class Director:
         Args:
             self (Director): An instance of Director.
         """
-        
+        for i in self._parachute.parachute:
+            print(i)
+        print(self._person.head)
+        print(self._person.body)
+        print(self._person.legs)
+        failed = 0
+        for char in self._word:
+            if char in self._word:
+                print(f'{char}')
+            else:
+                print("_")
+                failed += 1
+        if failed == 0:
+            print("Congratulations! You Won!")
+
+Director().start_game()
