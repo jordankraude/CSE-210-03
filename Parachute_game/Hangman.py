@@ -15,7 +15,7 @@ word = random.choice(lines)
 word_final = word.replace('\n', '')
 guesses = []
 turns = 10
-
+print(word_final)
 while turns > 0:
     failed = 0
     for char in word_final:
