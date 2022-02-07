@@ -50,26 +50,21 @@ class Director:
         """
         if not self._is_playing:
             return
-        
-        while turns > 0:
-            failed = 0
-            for char in word_final:
-                if char in guesses:
-                    print(f'{char}')
-                else:
-                    print("_")
-                    failed += 1
-            if failed == 0:
-                print("Congratulations! You Won!")
-                break
 
-            if letter not in word_final:
-                turns -= 1
-                print('Wrong!')
-                print(f'You have {turns} more guesses')
+        failed = 0
+        for char in word_final:
+            if char in guesses:
+                print(f'{char}')
+            else:
+                print("_")
+                failed += 1
+        if failed == 0:
+            print("Congratulations! You Won!")
 
-            if turns == 0:
-                print('You Lose')
+        if letter not in word_final:
+            turns -= 1
+            print('Wrong!')
+            print(f'You have {turns} more guesses')
 
     def _do_outputs(self):
         """
