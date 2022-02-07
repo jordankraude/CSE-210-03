@@ -51,7 +51,7 @@ class Director:
                 valid = True
                 return guess
        
-    def _do_updates(self, letter):
+    def _do_updates(self, guess):
         """
 
         Args:
@@ -60,7 +60,7 @@ class Director:
         if not self._is_playing:
             return
 
-        if letter in self._word:
+        if guess in self._word:
             pass
         else:
             self._parachute.break_chute()
