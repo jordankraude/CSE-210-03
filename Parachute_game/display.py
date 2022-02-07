@@ -21,7 +21,6 @@ class Display:
     #displays a word with the blanks       
     def set_blanks(self,word):
         blanks = []
-        split_word = [char for char in word]
-        for x in range(len(split_word)):
+        for x in range(len(word)):
             blanks.append("-")
         return blanks
