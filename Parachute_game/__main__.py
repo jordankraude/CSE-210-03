@@ -7,7 +7,7 @@ person = Person()
 display = Display()
 parachute = Parachute()
 #sample word
-sample = ["h","e","l","l","o"]
+sample = ["hello"]
 #Shows the parachute working and at full capacity
 parachute.show_chute()
 person.draw_person()
