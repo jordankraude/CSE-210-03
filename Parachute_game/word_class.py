@@ -11,7 +11,11 @@ class Word:
     def _getword(self):
         self._word = random.choice(self._list)
         self._word_final = self.word.replace('\n', '')
-        return self._word_final
+        self._word_as_list = []
+        for char in self._word_final:
+            char.append(self._word_as_list)
+
+        return self._word_as_list
 
 
     ##def _updateDisplay(self, letter_guess):
@@ -25,3 +29,4 @@ class Word:
         
        ## if letters_left == 0:
          ##   print("Congratulations! You Won!")
+
