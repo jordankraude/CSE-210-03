@@ -12,6 +12,7 @@ class Director:
         Args:
             self (Director): an instance of Director.
         """
+        self.person = Person()
         self._is_playing = True
         self._word_list = Word()
         self._word = self._word_list._getword()
@@ -43,6 +44,7 @@ class Director:
         valid = False
         while not valid:
             guess = input("Guess a letter [a-z]: ").lower()
+            print('')
             if len(guess) > 1:
                 valid = False
                 print("Please make sure the guess is only '1' letter!")
@@ -93,6 +95,4 @@ class Director:
         print(*self._guess_list)
         for i in self._parachute.parachute:
             print(i)
-        print(self._person.head)
-        print(self._person.body)
-        print(self._person.legs)
+        self.person.draw_person()
