@@ -1,7 +1,7 @@
 import random
 import time
 
-with open("Jumper\wordlist.txt") as word_list:
+with open("Parachute_game\wordlist.txt") as word_list:
     lines = word_list.readlines()
 
 print('\nWelcome to Hangman!')
@@ -15,7 +15,7 @@ word = random.choice(lines)
 word_final = word.replace('\n', '')
 guesses = []
 turns = 10
-print(word_final)
+
 while turns > 0:
     failed = 0
     for char in word_final:
