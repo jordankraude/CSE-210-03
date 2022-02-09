@@ -4,6 +4,9 @@ from person import Person
 from parachute import Parachute
 from display import Display
 from word_class import Word
+from director import Director
+
+director = Director()
 person = Person()
 display = Display()
 parachute = Parachute()
