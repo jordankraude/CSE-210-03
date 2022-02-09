@@ -12,14 +12,14 @@ display = Display()
 parachute = Parachute()
 word_class = Word()
 #Shows the parachute working and at full capacity
+'''
 parachute.show_chute()
 person.draw_person()
 the_word = (word_class._getword())
 #this currently has a test word, it should be replaced by the random word form the get word program
 anwser = display.set_blanks(the_word)
-'''the anwser should change based on user input and the blanks will be replaced with letters and the
-anwser should be reinputed into word_display for proper display in the console.
-'''
+#the anwser should change based on user input and the blanks will be replaced with letters and the
+#anwser should be reinputed into word_display for proper display in the console.
 display.word_display(anwser)
 #just for display, remove for full game
 print()
@@ -27,7 +27,7 @@ print("correct anwser display")
 #just for display, remove above for full game
 display.word_display(the_word)
 parachute.break_chute()
-
+'''
 
 #Uncomment these lines to see parachute break and what happens when all the parts are "torn"
 """
