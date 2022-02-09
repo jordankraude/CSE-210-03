@@ -18,7 +18,9 @@ class Director:
         self._person = Person()
         self._display = Display()
         self._parachute = Parachute()
+        self._gameover = self._parachute.parachute
         self._guess_list = Display().set_blanks(self._word)
+        self.start_game()
 
     def start_game(self):
         """Starts the game by running the main game loop.
@@ -28,8 +30,8 @@ class Director:
         """
         while self._is_playing:
             self._do_outputs()
-            letter = self._get_inputs()
-            self._do_updates(letter)
+            guess = self._get_inputs()
+            self._do_updates(guess)
             
 
     def _get_inputs(self):
@@ -57,8 +59,10 @@ class Director:
             self (Director): An instance of Director.
         """
 
-        if not self._is_playing:
-            return
+        if bool(self._gameover):
+            pass
+        else:
+            self._is_playing = False
 
         # Replaces each spot in the word with the correct letter
         if guess in self._word:
@@ -67,6 +71,17 @@ class Director:
                     self._guess_list[i] = guess
         else:
             self._parachute.break_chute()
+
+        if self._is_playing:
+            failed = 0
+            for char in self._word:
+                if char in self._guess_list:
+                    pass
+                else:
+                    failed += 1
+            if failed == 0:
+                print("Congratulations! You Won!")
+                self._is_playing = False
             
 
     def _do_outputs(self):
