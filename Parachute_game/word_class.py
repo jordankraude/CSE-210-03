@@ -1,13 +1,13 @@
 import random
 
 class Word:
+    '''This initializes itself and opens a txt file to create a wordlist for itself.'''
     def __init__(self) -> None:
         with open("Parachute_game\wordlist.txt") as word_list:
             self._list = word_list.readlines()
         
-        self._guesses = []
-
-
+    '''This function selects a word from the wordlist and seperates it into a seperate list where every
+    character is its own place in the list that can be reached'''
     def _getword(self):
         self._word = random.choice(self._list)
         self._word_final = self._word.replace('\n', '')
