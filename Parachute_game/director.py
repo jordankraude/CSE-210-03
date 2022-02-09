@@ -18,7 +18,7 @@ class Director:
         self._person = Person()
         self._display = Display()
         self._parachute = Parachute()
-        print(self._word)
+        self._guess_list = Display().set_blanks(self._word)
 
     def start_game(self):
         """Starts the game by running the main game loop.
@@ -27,9 +27,10 @@ class Director:
             self (Director): an instance of Director.
         """
         while self._is_playing:
+            self._do_outputs()
             letter = self._get_inputs()
             self._do_updates(letter)
-            self._do_outputs()
+            
 
     def _get_inputs(self):
         """
@@ -47,8 +48,6 @@ class Director:
                 valid = False
                 print("Please make sure the guess is only '1' letter!")
             else:
-                # guesses += guess
-                valid = True
                 return guess
        
     def _do_updates(self, guess):
@@ -57,13 +56,18 @@ class Director:
         Args:
             self (Director): An instance of Director.
         """
+
         if not self._is_playing:
             return
 
+        # Replaces each spot in the word with the correct letter
         if guess in self._word:
-            pass
+            for i in range(len(self._word)):
+                if self._word[i] == guess:
+                    self._guess_list[i] = guess
         else:
             self._parachute.break_chute()
+            
 
     def _do_outputs(self):
         """
@@ -71,19 +75,12 @@ class Director:
         Args:
             self (Director): An instance of Director.
         """
+        print(*self._guess_list)
+        print(*self._word)
         for i in self._parachute.parachute:
             print(i)
         print(self._person.head)
         print(self._person.body)
         print(self._person.legs)
-        failed = 0
-        for char in self._word:
-            if char in self._word:
-                print(f'{char}')
-            else:
-                print("_")
-                failed += 1
-        if failed == 0:
-            print("Congratulations! You Won!")
 
 Director().start_game()
