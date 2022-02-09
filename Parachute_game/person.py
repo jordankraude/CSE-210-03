@@ -9,6 +9,9 @@ class Person():
         print(self.head)
         print(self.body)
         print(self.legs)
+        print('')
+        print('^^^^^^^')
+        print('')
     
     #Replaces head with X
     def dead_person(self):
