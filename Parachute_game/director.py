@@ -85,17 +85,14 @@ class Director:
             
 
     def _do_outputs(self):
-        """
+        """ 
 
         Args:
             self (Director): An instance of Director.
         """
         print(*self._guess_list)
-        print(*self._word)
         for i in self._parachute.parachute:
             print(i)
         print(self._person.head)
         print(self._person.body)
         print(self._person.legs)
-
-Director().start_game()
