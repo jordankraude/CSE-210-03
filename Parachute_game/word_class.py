@@ -1,5 +1,4 @@
 import random
-import time
 
 class Word:
     def __init__(self) -> None:
