@@ -26,6 +26,7 @@ class Parachute():
     #Part of BreakChute Function
     #ends the game, and replaces persons head with an X
     def game_over(self):
+        print('')
         print("Game Over, parachute broken")
         person.dead_person()
         person.draw_person()
