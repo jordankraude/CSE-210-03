@@ -20,8 +20,9 @@ class Director:
         self._display = Display()
         self._parachute = Parachute()
         self._gameover = self._parachute.parachute
-        self._guess_list = Display().set_blanks(self._word)
+        self._empty_list = Display().set_blanks(self._word)
         self.start_game()
+        self._guess_list = []
 
     def start_game(self):
         """Starts the game by running the main game loop.
@@ -51,6 +52,9 @@ class Director:
             elif len(guess) == 0:
                 valid = False
                 print("Please make sure the guess is only '1' letter!")
+            # elif guess in self._guess_list:
+            #     print('You have guessed this already!')
+            #     valid = False
             else:
                 return guess
        
@@ -60,7 +64,7 @@ class Director:
         Args:
             self (Director): An instance of Director.
         """
-
+        #self._guess_list.append(guess)
         if bool(self._gameover):
             pass
         else:
@@ -70,14 +74,14 @@ class Director:
         if guess in self._word:
             for i in range(len(self._word)):
                 if self._word[i] == guess:
-                    self._guess_list[i] = guess
+                    self._empty_list[i] = guess
         else:
             self._parachute.break_chute()
 
         if self._is_playing:
             failed = 0
             for char in self._word:
-                if char in self._guess_list:
+                if char in self._empty_list:
                     pass
                 else:
                     failed += 1
@@ -92,7 +96,7 @@ class Director:
         Args:
             self (Director): An instance of Director.
         """
-        print(*self._guess_list)
+        print(*self._empty_list)
         for i in self._parachute.parachute:
             print(i)
         self.person.draw_person()
