@@ -11,6 +11,9 @@ person = Person()
 display = Display()
 parachute = Parachute()
 word_class = Word()
+
+def main():
+    director.start_game()
 #Shows the parachute working and at full capacity
 '''
 parachute.show_chute()
@@ -48,6 +51,7 @@ parachute.show_chute()
 parachute.break_chute()
 """
 
+main()
 
 
 
