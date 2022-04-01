@@ -12,7 +12,6 @@ class Director:
         Args:
             self (Director): an instance of Director.
         """
-        self.person = Person()
         self._is_playing = True
         self._word_list = Word()
         self._word = self._word_list._getword()
@@ -99,4 +98,4 @@ class Director:
         print(*self._empty_list)
         for i in self._parachute.parachute:
             print(i)
-        self.person.draw_person()
+        self._person.draw_person()
